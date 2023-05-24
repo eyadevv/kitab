@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id       Int    @id @unique @default(autoincrement())
+  username String @unique
+  email    String @unique
+  password String
+}
+
+model user {
+  id       Int      @id @unique @default(autoincrement())
+  username String   @unique
+  email    String   @unique
+  password String
+  country  String
+  gender   String
+  reviews  review[]
+}
+
+model author {
+  id          Int    @id @unique @default(autoincrement())
+  name        String
+  image       String
+  country     String
+  description String
+  books       book[]
+}
+
+model publisher {
+  id       Int    @id @unique @default(autoincrement())
+  name     String
+  location String
+  books    book[]
+}
+
+model book {
+  id          Int       @id @unique @default(autoincrement())
+  uuid        String    @unique
+  title       String    @unique
+  cover       String
+  language    String
+  downloads   Int
+  pages       Int
+  type        String
+  size        String
+  rate        Float
+  price       String
+  decription  String
+  author      author    @relation(fields: [authorId], references: [id])
+  publisher   publisher @relation(fields: [publisherId], references: [id])
+  categorie   categorie @relation(fields: [categorieId], references: [id])
+  categorieId Int
+  authorId    Int
+  publisherId Int
+  reviews     review[]
+  sections    section[]
+}
+
+model section {
+  id    Int    @id @unique @default(autoincrement())
+  title String
+  books book[]
+}
+
+model categorie {
+  id    Int    @id @unique @default(autoincrement())
+  title String
+  books book[]
+}
+
+model review {
+  id       Int      @id @unique @default(autoincrement())
+  date     DateTime
+  comment  String
+  author   user     @relation(fields: [authorId], references: [id])
+  book     book     @relation(fields: [bookId], references: [id])
+  authorId Int
+  bookId   Int
+}
