@@ -66,11 +66,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className="w-full h-max flex flex-col gap-2 justify-center items-center align-bottom ">
-              <button className="text-xl font-bold bg-indigo-900 rounded-full px-6 py-4 flex flex-row justify-center items-center gap-2">
-                {price === "free" ? "Download" : "Order Now"}
-                {price === "free" ? <FaDownload /> : <FaShoppingBag />}
-              </button>
-              {price === "free" ? null : <p>Secure Payments</p>}
+              {price === "free" ? (
+                <button className="text-xl font-bold bg-primary rounded-full px-6 py-4 flex flex-row justify-center items-center gap-2">
+                  Download
+                </button>
+              ) : null}
             </div>
           </div>
         </div>
