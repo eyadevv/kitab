@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Admin {
+model admin {
   id       Int    @id @unique @default(autoincrement())
   username String @unique
   email    String @unique
@@ -35,15 +35,15 @@ model author {
 
 model publisher {
   id       Int    @id @unique @default(autoincrement())
-  name     String
+  name     String  @unique
   location String
   books    book[]
 }
 
 model book {
   id          Int       @id @unique @default(autoincrement())
-  uuid        String    @unique
   title       String    @unique
+  slug String @unique
   cover       String
   language    String
   downloads   Int
@@ -52,35 +52,35 @@ model book {
   size        String
   rate        Float
   price       String
-  decription  String
+  description  String
   author      author    @relation(fields: [authorId], references: [id])
-  publisher   publisher @relation(fields: [publisherId], references: [id])
-  categorie   categorie @relation(fields: [categorieId], references: [id])
-  categorieId Int
+  publisher   publisher? @relation(fields: [publisherId], references: [id])
+  category   category @relation(fields: [categoryId], references: [id])
+  categoryId Int
   authorId    Int
-  publisherId Int
+  publisherId Int?
   reviews     review[]
   sections    section[]
 }
 
 model section {
   id    Int    @id @unique @default(autoincrement())
-  title String
+  title String @unique
   books book[]
 }
 
-model categorie {
+model category {
   id    Int    @id @unique @default(autoincrement())
-  title String
+  title String @unique
   books book[]
 }
 
 model review {
   id       Int      @id @unique @default(autoincrement())
-  date     DateTime
+  date     DateTime @default(now())
   comment  String
-  author   user     @relation(fields: [authorId], references: [id])
+  user   user     @relation(fields: [userId], references: [id])
   book     book     @relation(fields: [bookId], references: [id])
-  authorId Int
+  userId Int
   bookId   Int
 }
