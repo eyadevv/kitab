@@ -1,10 +1,12 @@
-const Grid = ({ children, style }) => {
+import Book from "./Book"
+const Grid = ({ data }: { data: [] }) => {
   return (
-    <div
-      style={style}
-      className="w-full h-max grid grid-cols-5 grid-flow-row md:grid-cols-3 sm:grid-cols-2 place-items-baseline rounded-lg overflow-hidden gap-4"
-    >
-      {children}
+    <div className="w-full h-max bg-white bg-opacity-10 flex flex-row  justify-start items-start flex-wrap gap-4  ">
+      {data?.length > 0
+        ? data.map((book, id) => {
+            return <Book key={id} data={book} />
+          })
+        : null}
     </div>
   )
 }
