@@ -30,7 +30,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     } = book
 
     return (
-      <div className="w-full h-full flex flex-col justify-between items-start gap-4 overflow-hidden ">
+      <div className="w-full h-full flex flex-col justify-between items-start gap-4 overflow-scroll ">
         <div className="w-full h-max min-h-[70vh] rounded-xl flex lg:flex-row justify-start items-center gap-4 flex-shrink-0 flex-col flex-nowrap ">
           <div className="h-96 flex-shrink-0 flex flex-col justify-center items-center">
             <Image

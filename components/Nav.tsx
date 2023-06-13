@@ -1,5 +1,5 @@
 "use client"
-import { MdDarkMode, MdLightMode, MdMenu } from "react-icons/md"
+import { BiMoon, BiSun, BiMenu, BiSearch } from "react-icons/bi"
 import Link from "next/link"
 import { useState } from "react"
 const Nav = () => {
@@ -16,24 +16,25 @@ const Nav = () => {
         <Link href="/app/categories">categories</Link>
         <Link href="/store">Store</Link>
       </div>
-      <div className="w-max flex flex-row justify-center items-center gap-4  h-full md:hidden sm:hidden ">
+
+      <div className="flex flex-row gap-2 justify-center items-center w-max ">
+        <BiSearch />
+
         {dark ? (
-          <MdLightMode
+          <BiSun
             onClick={() => setdark(!dark)}
             size={25}
             className="cursor-pointer flex-shrink-0"
           />
         ) : (
-          <MdDarkMode
+          <BiMoon
             onClick={() => setdark(!dark)}
             size={25}
             className="cursor-pointer flex-shrink-0"
           />
         )}
-
-        <p className="w-12 h-12 bg-white rounded-full flex-shrink-0"></p>
+        <p className="w-10 h-10 bg-white rounded-full flex-shrink-0"></p>
       </div>
-      <MdMenu className="lg:hidden" />
     </nav>
   )
 }
