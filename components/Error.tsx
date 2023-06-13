@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FaExternalLinkAlt } from "react-icons/fa"
 export const Reload = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-around items-center gap-2 bg-red-900">
+    <div className="w-full h-96 flex flex-col justify-around items-center gap-2 bg-red-900 bg-opacity-75 rounded-xl">
       <div className="flex flex-col justify-center gap-3 items-center">
         <p>There was an error on our side ,Please Refresh the page</p>
         <button

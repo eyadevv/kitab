@@ -1,15 +1,8 @@
 "use client"
 import { useState } from "react"
 import { MdSearch } from "react-icons/md"
-const Search = () => {
+const Search = ({ setstate }) => {
   const [query, setquery] = useState("")
-  const handleSearch = async (query) => {
-    const response = await fetch("/api/search", {
-      method: "post",
-      body: query,
-    })
-    console.log(response)
-  }
 
   return (
     <div className="w-full h-max py-4  rounded-lg flex-shrink-0 flex flex-col justify-center items-center">
@@ -23,7 +16,7 @@ const Search = () => {
         />
         <button
           className="h-full flex-shrink-0 w-16 rounded-xl bg-emerald-900 flex justify-center items-center"
-          onClick={() => handleSearch(query)}
+          // onClick={() => setstate("Loading")}
         >
           <MdSearch size={35} />
         </button>

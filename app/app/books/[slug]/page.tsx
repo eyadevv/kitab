@@ -1,8 +1,8 @@
 import { NotFoundBook } from "@/components/Error"
 import PRISMA from "@/lib/prisma"
 import Link from "next/link"
-import { FaDownload, FaShoppingBag } from "react-icons/fa"
 import Image from "next/image"
+import { FaDownload } from "react-icons/fa"
 const page = async ({ params }: { params: { slug: string } }) => {
   const book = await PRISMA.book
     .findUnique({
@@ -30,9 +30,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
     } = book
 
     return (
-      <div className="w-full h-full flex flex-col justify-between items-start gap-4 overflow-scroll ">
+      <div className="w-full h-full flex flex-col justify-between items-start gap-4 overflow-hidden ">
         <div className="w-full h-max min-h-[70vh] rounded-xl flex lg:flex-row justify-start items-center gap-4 flex-shrink-0 flex-col flex-nowrap ">
-          <div className="lg:h-80 h-56 flex-shrink-0 flex flex-col justify-center items-center">
+          <div className="h-96 flex-shrink-0 flex flex-col justify-center items-center">
             <Image
               src="/cover.jpg"
               width={999}
@@ -69,13 +69,14 @@ const page = async ({ params }: { params: { slug: string } }) => {
               {price === "free" ? (
                 <button className="text-xl font-bold bg-primary rounded-full px-6 py-4 flex flex-row justify-center items-center gap-2">
                   Download
+                  <FaDownload />
                 </button>
               ) : null}
             </div>
           </div>
         </div>
 
-        <div className="w-full h-44 flex-shrink-0 bg-white"></div>
+        <div className="w-full h-44 flex-shrink-0 bg-white my-20"></div>
       </div>
     )
   } else {
