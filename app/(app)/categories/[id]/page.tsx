@@ -21,13 +21,9 @@ const page = async ({ params }: { params: { id: number } }) => {
   return (
     <div>
       lol
-      {data.length > 1 ? (
-        data.map((book, id) => {
-          return <Book key={id} data={book} />
-        })
-      ) : (
-        <h1>No Books Found</h1>
-      )}
+      {data?.map((book, id) => {
+        return <Book key={id} data={book} />
+      })}
     </div>
   )
 }
