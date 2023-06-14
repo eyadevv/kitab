@@ -32,7 +32,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     return (
       <div className="w-full h-full flex flex-col justify-between items-start gap-4 overflow-scroll ">
         <div className="w-full h-max min-h-[70vh] rounded-xl flex lg:flex-row justify-start items-center gap-4 flex-shrink-0 flex-col flex-nowrap ">
-          <div className="h-96 flex-shrink-0 flex flex-col justify-center items-center">
+          <div className="h-96 sm:w-11/12 flex-shrink-0 flex flex-col justify-center items-center">
             <Image
               src="/cover.jpg"
               width={999}
@@ -41,7 +41,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
               className="w-full h-full rounded-lg object-fill"
             />
           </div>
-          <div className="lg:w-2/3 lg:h-5/6 h-max flex flex-col justify-between items-center gap-4">
+          <div className="lg:w-2/3 lg:h-5/6 h-max flex flex-col justify-between items-center gap-4 sm:w-11/12">
             <div className="w-full flex flex-col justify-start items-start ">
               <div className="w-full h-max flex flex-row justify-between items-center flex-wrap whitespace-nowrap">
                 <h1 className="text-3xl font-bold">{title}</h1>
@@ -53,8 +53,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
             <div className="w-full h-max">
               <p>{description}</p>
             </div>
-            <div className="w-full h-max flex flex-row justify-between items-center flex-wrap gap-2 ">
-              <div className="grid grid-flow-row grid-cols-4 sm:grid-cols-2 gap-2  ">
+            <div className="w-full h-max flex flex-row justify-between items-center flex-wrap gap-2">
+              <div className="w-full h-max grid grid-flow-row grid-cols-4 sm:grid-cols-2 gap-4  ">
                 <Item title="language" content={language} />
                 <Item title="Downloads" content={downloads.toString()} />
                 <Item title="Pages" content={pages.toString()} />
@@ -76,7 +76,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
 
-        <div className="w-full h-44 flex-shrink-0 bg-white my-20"></div>
+        {/* <div className="w-full h-44 flex-shrink-0 bg-white my-20"></div> */}
       </div>
     )
   } else {

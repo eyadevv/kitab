@@ -12,8 +12,8 @@ const Nav = () => {
       <div
         className={`flex gap-3 w-max h-12 rounded-lg justify-center items-center sm:hidden`}
       >
-        <Link href="/app/">Home</Link>
-        <Link href="/app/categories">categories</Link>
+        <Link href="/">Home</Link>
+        <Link href="/categories">categories</Link>
         <Link href="/store">Store</Link>
       </div>
 

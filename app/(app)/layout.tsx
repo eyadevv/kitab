@@ -4,7 +4,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <section className="w-full h-screen  flex flex-col justify-between items-center ">
       <Nav />
-      <div className="h-full flex-shrink w-full overflow-scroll">
+      <div className="h-full w-full flex flex-shrink overflow-scroll justify-center items-start ">
         {children}
       </div>
       <MobileMenu />

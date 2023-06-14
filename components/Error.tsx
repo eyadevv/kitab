@@ -3,8 +3,8 @@ import Link from "next/link"
 import { FaExternalLinkAlt } from "react-icons/fa"
 export const Reload = () => {
   return (
-    <div className="w-full h-96 flex flex-col justify-around items-center gap-2 bg-red-900 bg-opacity-75 rounded-xl">
-      <div className="flex flex-col justify-center gap-3 items-center">
+    <div className="w-2/3 sm:w-11/12 h-96 flex flex-col justify-around items-center gap-2 bg-red-900 bg-opacity-75 rounded-xl text-center">
+      <div className="flex flex-col justify-center gap-3 items-center flex-wrap">
         <p>There was an error on our side ,Please Refresh the page</p>
         <button
           className="py-4 px-6 bg-black bg-opacity-25 rounded-lg "
@@ -13,11 +13,11 @@ export const Reload = () => {
           Reload
         </button>
       </div>
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 justify-center items-center flex-wrap">
         <p>If the error is Persistent Please Submit </p>
         <a
           href="/report"
-          className="font-bold flex flex-row justify-center items-center gap-2"
+          className="font-bold flex flex-row justify-center items-center gap-2 flex-nowrap"
         >
           <p>a Report</p>
           <FaExternalLinkAlt />

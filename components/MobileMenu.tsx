@@ -1,34 +1,35 @@
 import Link from "next/link"
-import { BiCategory, BiHome, BiUser, BiLibrary } from "react-icons/bi"
+import { BiLibrary } from "react-icons/bi"
+import { AiFillHome, AiFillAppstore, AiOutlineUser } from "react-icons/ai"
 const MobileMenu = () => {
   return (
     <div className="hidden sm:visible bg-black sm:flex gap-3 w-11/12  h-12 rounded-lg justify-between items-center flex-shrink-0 ">
       <Link
         href="/"
-        className="flex flex-col justify-center items-center text-xs"
+        className="flex flex-col justify-center items-center text-xs gap-2"
       >
-        <BiHome size={35} />
+        <AiFillHome size={30} />
         <p>Home</p>
       </Link>
       <Link
         href="/categories"
-        className="flex flex-col justify-center items-center text-xs"
+        className="flex flex-col justify-center items-center text-xs gap-2"
       >
-        <BiCategory size={35} />
+        <AiFillAppstore size={30} />
         <p>Categories</p>
       </Link>
       <Link
         href="/authors"
-        className="flex flex-col justify-center items-center text-xs"
+        className="flex flex-col justify-center items-center text-xs gap-2"
       >
-        <BiUser size={35} />
-        <p>Trending</p>
+        <AiOutlineUser size={30} />
+        <p>Authors</p>
       </Link>
       <Link
         href="/library"
-        className="flex flex-col justify-center items-center text-xs"
+        className="flex flex-col justify-center items-center text-xs gap-2"
       >
-        <BiLibrary size={35} />
+        <BiLibrary size={30} />
         <p>Library</p>
       </Link>
     </div>
