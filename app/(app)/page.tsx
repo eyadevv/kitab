@@ -1,9 +1,9 @@
 import PRISMA from "@/lib/prisma"
 import Grid from "@/components/Grid"
 import { Reload } from "@/components/Error"
-
+import Link from "next/link"
 const page = async () => {
-  const books = await PRISMA.book
+  const books: any = await PRISMA.book
     .findMany({
       take: 25,
       select: {
@@ -28,8 +28,9 @@ const page = async () => {
     })
 
   return (
-    <div className="w-full h-full flex justify-center items-start gap-3">
-      {books ? <Grid data={books} /> : <Reload />}
+    <div className="w-full h-full flex flex-col justify-center items-center gap-3">
+      {books?.length !== 0 ? <Grid data={books} /> : <Reload />}
+      {JSON.stringify(books)}
     </div>
   )
 }

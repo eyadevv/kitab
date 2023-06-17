@@ -3,10 +3,14 @@ import { useState } from "react"
 import { FaArrowRight, FaTruckLoading } from "react-icons/fa"
 import LocalInput from "@/components/form/LocalInput"
 import RemoteInput from "@/components/form/RemoteInput"
+import axios from "axios"
+import { useRouter } from "next/navigation"
 const Page = () => {
+  const ROUTER = useRouter()
   const [file, setfile] = useState(null)
   const [local, setlocal] = useState(true)
   const [loading, setloading] = useState(false)
+  const [output, setoutput] = useState(null)
 
   return (
     <div className="w-full h-screen  flex flex-col justify-center items-center ">
@@ -19,15 +23,16 @@ const Page = () => {
             Remote Files
           </button>
         </div>
-        <div className="h-full flex flex-shrink justify-center items-center">
+        <form className="h-full flex flex-col  flex-shrink justify-center items-center">
+          <h1>{JSON.stringify(output)}</h1>
           {local ? (
             <LocalInput file={file} setfile={setfile} />
           ) : (
             <RemoteInput />
           )}
-        </div>
+        </form>
         {file ? (
-          <button className="btn">
+          <button className="btn" onClick={() => ROUTER.push("/add/file")}>
             Next <FaArrowRight />
           </button>
         ) : null}
@@ -36,3 +41,21 @@ const Page = () => {
   )
 }
 export default Page
+
+// const uploader = async (e: any, file: any) => {
+//   e.preventDefault()
+//   const Form = new FormData()
+//   Form.append("file", file[0])
+//   const data = await axios({
+//     method: "Post",
+//     url: "/api/upload",
+//     data: Form,
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   })
+//     .then((res) => res)
+//     .catch((err) => err)
+
+//   return data
+// }
