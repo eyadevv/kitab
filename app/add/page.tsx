@@ -5,7 +5,7 @@ import LocalInput from "@/components/form/LocalInput"
 import RemoteInput from "@/components/form/RemoteInput"
 import Details from "@/components/form/Details"
 import axios from "axios"
-const page = () => {
+const Page = () => {
   const [file, setfile] = useState(null)
   const [local, setlocal] = useState(true)
   const [loading, setloading] = useState(false)
@@ -29,7 +29,7 @@ const page = () => {
           )}
         </div>
         {file ? (
-          <button className="btn" onClick={() => upload(file)}>
+          <button className="btn">
             Next <FaArrowRight />
           </button>
         ) : null}
@@ -37,23 +37,23 @@ const page = () => {
     </div>
   )
 }
-export default page
+export default Page
 
-const upload = async ({ file }) => {
-  const data = await axios({
-    method: "POST",
-    url: "/api/upload",
-    data: file,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => {
-      return res
-    })
-    .catch((err) => {
-      return err
-    })
+// const upload = async ({ file }) => {
+//   const data = await axios({
+//     method: "POST",
+//     url: "/api/upload",
+//     data: file,
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((res) => {
+//       return res
+//     })
+//     .catch((err) => {
+//       return err
+//     })
 
-  return data
-}
+//   return data
+// }
