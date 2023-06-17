@@ -3,8 +3,6 @@ import { useState } from "react"
 import { FaArrowRight, FaTruckLoading } from "react-icons/fa"
 import LocalInput from "@/components/form/LocalInput"
 import RemoteInput from "@/components/form/RemoteInput"
-import Details from "@/components/form/Details"
-import axios from "axios"
 const Page = () => {
   const [file, setfile] = useState(null)
   const [local, setlocal] = useState(true)
@@ -38,22 +36,3 @@ const Page = () => {
   )
 }
 export default Page
-
-// const upload = async ({ file }) => {
-//   const data = await axios({
-//     method: "POST",
-//     url: "/api/upload",
-//     data: file,
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((res) => {
-//       return res
-//     })
-//     .catch((err) => {
-//       return err
-//     })
-
-//   return data
-// }
