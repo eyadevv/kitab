@@ -29,8 +29,7 @@ const page = async () => {
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center gap-3">
-      {books?.length !== 0 ? <Grid data={books} /> : <Reload />}
-      {JSON.stringify(books)}
+      {books ? <Grid data={books} /> : <Reload />}
     </div>
   )
 }

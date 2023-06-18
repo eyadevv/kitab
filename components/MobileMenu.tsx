@@ -5,7 +5,7 @@ const MobileMenu = () => {
   return (
     <div className="hidden sm:visible bg-black sm:flex gap-3 w-11/12  h-12 rounded-lg justify-between items-center flex-shrink-0 ">
       <Link
-        href="/"
+        href="/home"
         className="flex flex-col justify-center items-center text-xs gap-2"
       >
         <AiFillHome size={30} />
