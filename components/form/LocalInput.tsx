@@ -1,4 +1,5 @@
 const LocalInput = ({ file, setfile }: any) => {
+
   return (
     <div className="form-control w-full max-w-xs">
       <label className="label">

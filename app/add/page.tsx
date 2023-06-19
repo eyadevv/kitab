@@ -32,7 +32,7 @@ const Page = () => {
           )}
         </form>
         {file ? (
-          <button className="btn" onClick={() => ROUTER.push("/add/file")}>
+          <button className="btn" onClick={(e) => uploader(e , file)}>
             Next <FaArrowRight />
           </button>
         ) : null}
@@ -42,20 +42,20 @@ const Page = () => {
 }
 export default Page
 
-// const uploader = async (e: any, file: any) => {
-//   e.preventDefault()
-//   const Form = new FormData()
-//   Form.append("file", file[0])
-//   const data = await axios({
-//     method: "Post",
-//     url: "/api/upload",
-//     data: Form,
-//     headers: {
-//       "Content-Type": "multipart/form-data",
-//     },
-//   })
-//     .then((res) => res)
-//     .catch((err) => err)
+const uploader = async (e: any, file: any) => {
+  e.preventDefault()
+  const Form = new FormData()
+  Form.append("file", file[0])
+  const data = await axios({
+    method: "Post",
+    url: "/api/upload",
+    data: Form,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  })
+    .then((res) => res)
+    .catch((err) => err)
 
-//   return data
-// }
+  return data
+}
