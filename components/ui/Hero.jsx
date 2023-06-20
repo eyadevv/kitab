@@ -11,8 +11,8 @@ import logoTuple from "@/public/images/logos/tuple.svg"
 
 export function Hero() {
   return (
-    <Container className=" pb-16 text-center pt-8 lg:pt-16">
-      <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium tracking-tight text-slate-900 dark:text-white sm:text-7xl">
+    <Container className=" pb-16 pt-8 text-center lg:pt-16">
+      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 dark:text-white sm:text-7xl">
         Accounting{" "}
         <span className="relative whitespace-nowrap text-blue-600">
           <svg
@@ -32,7 +32,7 @@ export function Hero() {
         opposite trade-off, and hope you don’t get audited.
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/app">Get Started</Button>
+        <Button href="/home">Get Started</Button>
       </div>
       <div className="mt-8 lg:mt-16">
         <p className="font-display text-base">
@@ -40,7 +40,7 @@ export function Hero() {
         </p>
         <ul
           role="list"
-          className="mt-8 mb-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
+          className="xl:flex-row xl:gap-x-12 xl:gap-y-0 mb-8 mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10"
         >
           {[
             [
@@ -61,12 +61,7 @@ export function Hero() {
               >
                 {group.map((company) => (
                   <li key={company.name} className="flex text-white">
-                    <Image
-
-                      src={company.logo}
-                      alt={company.name}
-                      unoptimized
-                    />
+                    <Image src={company.logo} alt={company.name} unoptimized />
                   </li>
                 ))}
               </ul>
