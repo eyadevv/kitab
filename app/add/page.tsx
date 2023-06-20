@@ -13,9 +13,9 @@ const Page = () => {
   const [output, setoutput] = useState(null)
 
   return (
-    <div className="w-full h-screen  flex flex-col justify-center items-center ">
-      <div className="w-1/2 h-4/6 bg-white bg-opacity-5 flex flex-col justify-between items-center rounded-xl overflow-clip">
-        <div className="w-full h-10 bg-red-900 flex flex-row justify-around items-center">
+    <div className="flex h-screen  w-full flex-col items-center justify-center ">
+      <div className="flex h-4/6 w-1/2 flex-col items-center justify-between overflow-clip rounded-xl bg-white bg-opacity-5">
+        <div className="flex h-10 w-full flex-row items-center justify-around bg-red-900">
           <button className="" onClick={() => setlocal(!local)}>
             Local Files
           </button>
@@ -23,7 +23,7 @@ const Page = () => {
             Remote Files
           </button>
         </div>
-        <form className="h-full flex flex-col  flex-shrink justify-center items-center">
+        <form className="flex h-full flex-shrink  flex-col items-center justify-center">
           <h1>{JSON.stringify(output)}</h1>
           {local ? (
             <LocalInput file={file} setfile={setfile} />
@@ -32,7 +32,7 @@ const Page = () => {
           )}
         </form>
         {file ? (
-          <button className="btn" onClick={(e) => uploader(e , file)}>
+          <button className="btn" onClick={(e) => uploader(e, file)}>
             Next <FaArrowRight />
           </button>
         ) : null}
