@@ -1,0 +1,11 @@
+[GDRIVE]
+type = drive
+client_id = 114962223125-dcks95c75je1cedlt2o83e6c2oo4q48i.apps.googleusercontent.com
+client_secret = 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
+scope = drive
+token = {"access_token":"ya29.a0AWY7CkkAsQWAZ0BifwMSQhaEvZz70zKimDBupRlNKHKtTMjvRNYX1kqU3kLRBaKwfBtzth5RcDXmy7TjgoiByAwdwkRV9H5IBK6aQ6uwtqhlDyKmZtBF3NBKjsReaAq8zudPFpI41yGBA29ebKIq54GdUmRSaCgYKATASARMSFQG1tDrpVcrhavAt1EkWW2WseD6FAg0163","token_type":"Bearer","refresh_token":"1//01wr-BqotQ3n4CgYIARAAGAESNwF-L9IrVguRHgSWHjP4wHMAH247SA5Rd-XT01HtjR2jAP0r14p9jz3t0b6fF4B9g8f9_KRb9ZE","expiry":"2023-06-16T09:05:23.016768295+02:00"}
+
+[DROPBOX]
+type = dropbox
+token = {"access_token":"sl.BgZh6dTcGLWafJsh850bfXOI2Cz8l3Y4KFMLi52cconON9yfCShuCrEaS8w-qzNAD9yI4IpOydTQyTk_sR2xHngAPU26UIuVHwOoLGdafZEvRUj-RqmR9pfJ-QikFyPe8VDhTL9M","token_type":"bearer","refresh_token":"IdCWQmonF6IAAAAAAAAAAQJkIHlGj00dQXe9Ch5Iucw2tp8dpjBkT0KQqG10RnZP","expiry":"2023-06-16T12:32:42.038391233+02:00"}
+
