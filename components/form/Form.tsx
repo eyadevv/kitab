@@ -8,7 +8,7 @@ const Form = ({ authors, categories }: any) => {
   const [language, setlanguage] = useState(false)
 
   return (
-    <div className="flex w-1/2 h-full gap-4 rounded flex-col justify-start items-start">
+    <div className="flex h-full w-11/12 max-w-lg flex-col items-start justify-start gap-4 rounded">
       <TextInput placeholder="Book Name" />
       <Select
         data={authors}
@@ -41,7 +41,7 @@ const Form = ({ authors, categories }: any) => {
           <span className="label-text">Book Summery</span>
         </label>
         <textarea
-          className="textarea textarea-bordered h-24"
+          className="textarea-bordered textarea h-24"
           placeholder="Summery"
         ></textarea>
       </div>

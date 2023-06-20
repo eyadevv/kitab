@@ -18,11 +18,11 @@ const page = async () => {
     .then((res) => res)
     .catch((err) => null)
   return (
-    <div className="flex h-max w-11/12 items-start justify-start pt-8">
+    <div className="flex h-max w-11/12  flex-row flex-wrap-reverse items-start justify-start gap-8 pt-8">
       {authors && categories ? (
         <>
           <Form authors={authors} categories={categories} />
-          <div className="h-96 w-1/2 bg-white"></div>
+          <div className="h-96 w-96 bg-white"></div>
         </>
       ) : (
         <p>ERROR </p>
