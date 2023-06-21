@@ -1,6 +1,6 @@
 import PRISMA from "@/lib/prisma"
-import Grid from "@/components/Grid"
-import { Reload } from "@/components/Error"
+import Grid from "@/components/app/Grid"
+import { Reload } from "@/components/app/Error"
 import Link from "next/link"
 const page = async () => {
   const books: any = await PRISMA.book
@@ -28,7 +28,7 @@ const page = async () => {
     })
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center gap-3">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-3">
       {books ? <Grid data={books} /> : <Reload />}
     </div>
   )

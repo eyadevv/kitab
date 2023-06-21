@@ -29,6 +29,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/(app)/layout.js"
-  ],
+, "components/ui/Button.jsx"  ],
   "exclude": ["node_modules"]
 }

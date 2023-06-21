@@ -9,7 +9,7 @@ import { Container } from "./Container"
 import { Logo } from "./Logo"
 import { NavLink } from "./NavLink"
 
-function MobileNavLink({ href, children }) {
+function MobileNavLink({ href, children }: any) {
   return (
     <Popover.Button as={Link} href={href} className="block w-full p-2">
       {children}
@@ -17,7 +17,7 @@ function MobileNavLink({ href, children }) {
   )
 }
 
-function MobileNavIcon({ open }) {
+function MobileNavIcon({ open }: any) {
   return (
     <svg
       aria-hidden="true"
@@ -93,13 +93,13 @@ function MobileNavigation() {
 export function Header() {
   return (
     <header className="py-6 sm:py-4">
-      <Container>
-        <nav className="relative z-50 flex justify-between items-center">
+      <Container className="">
+        <nav className="relative z-50 flex items-center justify-between">
           <div className="flex items-center gap-x-12">
             <Link href="#" aria-label="Home">
-              <Logo className="h-10 w-auto sm:text-2xl" />
+              <Logo />
             </Link>
-            <div className="sm:hidden flex gap-x-6 ">
+            <div className="flex gap-x-6 sm:hidden ">
               <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>
               <NavLink href="#pricing">Pricing</NavLink>
@@ -109,11 +109,11 @@ export function Header() {
             <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div>
-            <Button href="/register" color="blue">
-                Get started
+            <Button href="/register" color="blue" className="">
+              Get started
             </Button>
             <div className="-mr-1 hidden sm:visible">
-              <MobileNavigation  />
+              <MobileNavigation />
             </div>
           </div>
         </nav>

@@ -1,7 +1,5 @@
 import PRISMA from "@/lib/prisma"
-import Book from "@/components/Book"
-import { Reload } from "@/components/Error"
-import Grid from "@/components/Grid"
+import Grid from "@/components/app/Grid"
 const page = async ({ params }: { params: { id: number } }) => {
   const category = await PRISMA.category
     .findUnique({
@@ -27,8 +25,8 @@ const page = async ({ params }: { params: { id: number } }) => {
 
   console.log(category)
   return (
-    <div className="w-11/12 flex flex-col justify-start items-center">
-      <div className="w-full h-10  flex flex-row justify-start items-center gap-4 ">
+    <div className="flex w-11/12 flex-col items-center justify-start">
+      <div className="flex h-10  w-full flex-row items-center justify-start gap-4 ">
         <h1 className="text-xl font-bold">{category?.title}:</h1>
         <p>{category?._count.books} Books</p>
       </div>

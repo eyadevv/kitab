@@ -4,7 +4,7 @@ import { Button } from "./Button"
 
 import { Container } from "./Container"
 
-function SwirlyDoodle({ className }) {
+function SwirlyDoodle({ className }: any) {
   return (
     <svg
       aria-hidden="true"
@@ -21,7 +21,7 @@ function SwirlyDoodle({ className }) {
   )
 }
 
-function CheckIcon({ className }) {
+function CheckIcon({ className }: any) {
   return (
     <svg
       aria-hidden="true"
@@ -47,7 +47,14 @@ function CheckIcon({ className }) {
   )
 }
 
-function Plan({ name, price, description, href, features, featured = false }) {
+function Plan({
+  name,
+  price,
+  description,
+  href,
+  features,
+  featured = false,
+}: any) {
   return (
     <section
       className={clsx(
@@ -55,7 +62,7 @@ function Plan({ name, price, description, href, features, featured = false }) {
         featured ? "order-first bg-blue-600 py-8 lg:order-none" : "lg:py-8"
       )}
     >
-      <h3 className="font-display mt-5 text-lg text-white">{name}</h3>
+      <h3 className="mt-5 font-display text-lg text-white">{name}</h3>
       <p
         className={clsx(
           "mt-2 text-base",
@@ -64,7 +71,7 @@ function Plan({ name, price, description, href, features, featured = false }) {
       >
         {description}
       </p>
-      <p className="font-display order-first text-5xl font-light tracking-tight text-white">
+      <p className="order-first font-display text-5xl font-light tracking-tight text-white">
         {price}
       </p>
       <ul
@@ -74,7 +81,7 @@ function Plan({ name, price, description, href, features, featured = false }) {
           featured ? "text-white" : "text-slate-200"
         )}
       >
-        {features.map((feature) => (
+        {features.map((feature: any) => (
           <li key={feature} className="flex">
             <CheckIcon className={featured ? "text-white" : "text-slate-400"} />
             <span className="ml-4">{feature}</span>
@@ -115,7 +122,7 @@ export function Pricing() {
             work well for you.
           </p>
         </div>
-        <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
+        <div className="xl:mx-0 xl:gap-x-8 -mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3">
           <Plan
             name="Starter"
             price="$9"

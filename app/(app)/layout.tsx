@@ -1,5 +1,5 @@
-import Nav from "@/components/Nav"
-import MobileMenu from "@/components/MobileMenu"
+import Nav from "@/components/app/Nav"
+import MobileMenu from "@/components/app/MobileMenu"
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <section className="w-full h-screen  flex flex-col justify-between items-center ">

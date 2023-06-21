@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { AuthLayout } from '@/components/AuthLayout'
-import { Button } from '@/components/Button'
-import { TextField } from '@/components/Fields'
-import { Logo } from '@/components/Logo'
+import { AuthLayout } from '@/components/ui/AuthLayout'
+import { Button } from '@/components/ui/Button'
+import { TextField } from '@/components/ui/Fields'
+import { Logo } from '@/components/ui/Logo'
 
 export default function Login() {
   return (

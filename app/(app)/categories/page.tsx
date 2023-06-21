@@ -1,4 +1,4 @@
-import { Reload } from "@/components/Error"
+import { Reload } from "@/components/app/Error"
 import PRISMA from "@/lib/prisma"
 import Link from "next/link"
 const page = async () => {
@@ -13,16 +13,16 @@ const page = async () => {
     })
 
   return (
-    <div className="w-full h-max flex flex-row gap-4 flex-wrap justify-center items-center ">
+    <div className="flex h-max w-full flex-row flex-wrap items-center justify-center gap-4 ">
       {categories?.map((category, id) => {
         return (
           <Link
             key={id}
-            className="w-56 h-24 p-4 bg-red-900 bg-opacity-10 rounded-xl flex justify-start items-center gap-2"
+            className="flex h-24 w-56 items-center justify-start gap-2 rounded-xl bg-red-900 bg-opacity-10 p-4"
             href={`/categories/${category.id}`}
           >
-            <div className="w-14 h-14 rounded-full bg-white"></div>
-            <div className="w-max h-14 flex flex-col">
+            <div className="h-14 w-14 rounded-full bg-white"></div>
+            <div className="flex h-14 w-max flex-col">
               <p>{category.title}</p>
               <p>{category._count.books} Book</p>
             </div>

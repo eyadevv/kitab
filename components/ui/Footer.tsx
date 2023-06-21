@@ -7,9 +7,9 @@ import { NavLink } from "./NavLink"
 export function Footer() {
   return (
     <footer className="bg-slate-50 dark:bg-black">
-      <Container className=' flex flex-col justify-center items-center' >
-        <div className="py-16 w-max flex flex-col justify-center items-center ">
-          <Logo className="mx-auto h-10 w-auto" />
+      <Container className=" flex flex-col items-center justify-center">
+        <div className="flex w-max flex-col items-center justify-center py-16 ">
+          <Logo />
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6 dark:text-white">
               <NavLink href="#features">Features</NavLink>
@@ -46,7 +46,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500 dark:text-white sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} TaxPal. All rights
+            Copyright &copy; {new Date().getFullYear()} Kitab. All rights
             reserved.
           </p>
         </div>
