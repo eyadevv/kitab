@@ -109,7 +109,7 @@ export function Header() {
             <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div>
-            <Button href="/register" color="blue" className="">
+            <Button href="/home" color="blue" className="">
               Get started
             </Button>
             <div className="-mr-1 hidden sm:visible">
