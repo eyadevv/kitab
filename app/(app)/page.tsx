@@ -1,7 +1,6 @@
 import PRISMA from "@/lib/prisma"
 import Grid from "@/components/app/Grid"
 import { Reload } from "@/components/app/Error"
-import Link from "next/link"
 const page = async () => {
   const books: any = await PRISMA.book
     .findMany({
