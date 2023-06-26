@@ -1,7 +1,6 @@
 "use client"
-import { BiMoon, BiSun, BiMenu, BiSearch } from "react-icons/bi"
+import { BiMoon, BiSun, BiSearch } from "react-icons/bi"
 import Link from "next/link"
-import Menu from "./Menu"
 import { useState } from "react"
 const Nav = () => {
   const [dark, setdark] = useState(true)
@@ -13,7 +12,9 @@ const Nav = () => {
       <div
         className={`flex h-12 w-max items-center justify-center gap-3 rounded-lg sm:hidden`}
       >
-        <Menu className='sm:hidden' />
+        <Link href="/">Home</Link>
+        <Link href="/categories">categories</Link>
+        <Link href="/store">Store</Link>
       </div>
 
       <div className="flex w-max flex-row items-center justify-center gap-2 ">

@@ -4,6 +4,7 @@ import { BiLibrary } from "react-icons/bi"
 import { AiFillHome, AiFillAppstore, AiOutlineUser } from "react-icons/ai"
 const Menu = ({ className }:any) => {
   return (
+
     <div
       className={`flex h-12 w-11/12 flex-shrink-0 items-center justify-between  gap-3 rounded-lg bg-black ${className}`}
     >

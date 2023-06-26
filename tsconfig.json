@@ -28,8 +28,13 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+<<<<<<< HEAD
+    "app/(app)/layout.js"
+, "components/ui/Button.jsx"  ],
+=======
     "app/(app)/layout.js",
     "components/ui/Button.jsx"
   ],
+>>>>>>> main
   "exclude": ["node_modules"]
 }
