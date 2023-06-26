@@ -1,39 +1,38 @@
 "use client"
 import { BiMoon, BiSun, BiMenu, BiSearch } from "react-icons/bi"
 import Link from "next/link"
+import Menu from "./Menu"
 import { useState } from "react"
 const Nav = () => {
   const [dark, setdark] = useState(true)
   return (
-    <nav className="w-11/12 h-20 flex flex-row justify-between items-center text-lg font-medium flex-shrink-0 ">
+    <nav className="flex h-20 w-11/12 flex-shrink-0 flex-row items-center justify-between text-lg font-medium ">
       <Link href="/">
         <h1 className="text-3xl font-bold text-primary">Kitab</h1>
       </Link>
       <div
-        className={`flex gap-3 w-max h-12 rounded-lg justify-center items-center sm:hidden`}
+        className={`flex h-12 w-max items-center justify-center gap-3 rounded-lg sm:hidden`}
       >
-        <Link href="/">Home</Link>
-        <Link href="/categories">categories</Link>
-        <Link href="/store">Store</Link>
+        <Menu className='sm:hidden' />
       </div>
 
-      <div className="flex flex-row gap-2 justify-center items-center w-max ">
+      <div className="flex w-max flex-row items-center justify-center gap-2 ">
         <BiSearch />
 
         {dark ? (
           <BiSun
             onClick={() => setdark(!dark)}
             size={25}
-            className="cursor-pointer flex-shrink-0"
+            className="flex-shrink-0 cursor-pointer"
           />
         ) : (
           <BiMoon
             onClick={() => setdark(!dark)}
             size={25}
-            className="cursor-pointer flex-shrink-0"
+            className="flex-shrink-0 cursor-pointer"
           />
         )}
-        <p className="w-10 h-10 bg-white rounded-full flex-shrink-0"></p>
+        <p className="h-10 w-10 flex-shrink-0 rounded-full bg-white"></p>
       </div>
     </nav>
   )
