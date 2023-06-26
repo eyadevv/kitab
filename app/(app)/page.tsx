@@ -27,7 +27,7 @@ const page = async () => {
     })
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-3">
+    <div className="flex h-full w-11/12 items-start justify-center gap-3 ">
       {books ? <Grid data={books} /> : <Reload />}
     </div>
   )

@@ -32,7 +32,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     return (
       <div className="flex h-full w-full flex-col items-start justify-between gap-4 overflow-scroll ">
         <div className="flex h-max min-h-[70vh] w-full flex-shrink-0 flex-col flex-nowrap items-center justify-start gap-4 rounded-xl lg:flex-row ">
-          <div className="flex h-96 flex-shrink-0 flex-col items-center justify-center sm:w-11/12">
+          <div className="flex h-96 flex-shrink-0 flex-col items-center justify-center sm:h-[120vw] sm:w-[90vw]">
             <Image
               src="/cover.jpg"
               width={999}
@@ -66,12 +66,10 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className="flex h-max w-full flex-col items-center justify-center gap-2 align-bottom ">
-              {price === "free" ? (
-                <button className="flex flex-row items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-xl font-bold">
-                  Download
-                  <FaDownload />
-                </button>
-              ) : null}
+              <button className="flex flex-row items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-xl font-bold">
+                Download
+                <FaDownload />
+              </button>
             </div>
           </div>
         </div>
