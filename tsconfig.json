@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/(app)/layout.js",
-    "components/ui/Button.jsx"
+    "components/ui/Button.jsx",
+    "app/download/[slug]/route.ts"
   ],
 
   "exclude": ["node_modules"]
