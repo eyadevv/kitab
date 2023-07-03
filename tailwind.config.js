@@ -40,6 +40,6 @@ module.exports = {
         '2xl': '40rem',
       },
     }},
-    plugins: [require('@tailwindcss/forms' ) , require('daisyui') ],
+    plugins: [require('daisyui') ],
 
 }

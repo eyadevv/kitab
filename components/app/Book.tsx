@@ -16,14 +16,14 @@ const Book = ({ id, data }: any) => {
   } = data || {}
 
   return (
-    <div className="h-88 flex w-40 flex-col items-center justify-start gap-3 text-sm sm:h-max sm:w-24 ">
+    <div className="h-88 flex w-40  flex-col items-center justify-start gap-3 text-sm sm:h-max sm:w-24 ">
       <Link href={`/books/${slug}`}>
         <Image
           src="/cover.jpg"
           height={100}
-          width={100}
+          width={128}
           alt="cover"
-          className="h-max w-full rounded-lg  object-cover"
+          className="h-max w-32 rounded-lg  object-cover"
         />
       </Link>
 

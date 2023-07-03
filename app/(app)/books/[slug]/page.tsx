@@ -1,8 +1,8 @@
 import { NotFoundBook } from "@/components/app/Error"
+import Download from "@/components/app/Download"
 import PRISMA from "@/lib/prisma"
 import Link from "next/link"
 import Image from "next/image"
-import { FaDownload } from "react-icons/fa"
 const page = async ({ params }: { params: { slug: string } }) => {
   const book = await PRISMA.book
     .findUnique({
@@ -18,6 +18,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     })
   if (book?.id) {
     const {
+      slug,
       title,
       author,
       language,
@@ -30,7 +31,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     } = book
 
     return (
-      <div className="flex h-full w-full flex-col items-start justify-between gap-4 overflow-scroll ">
+      <div className="flex h-full w-11/12 flex-col items-start justify-between gap-4 overflow-scroll ">
         <div className="flex h-max min-h-[70vh] w-full flex-shrink-0 flex-col flex-nowrap items-center justify-start gap-4 rounded-xl lg:flex-row ">
           <div className="flex h-96 flex-shrink-0 flex-col items-center justify-center sm:h-[120vw] sm:w-[90vw]">
             <Image
@@ -66,10 +67,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className="flex h-max w-full flex-col items-center justify-center gap-2 align-bottom ">
-              <button className="flex flex-row items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-xl font-bold">
-                Download
-                <FaDownload />
-              </button>
+              <Download slug={slug} />
             </div>
           </div>
         </div>

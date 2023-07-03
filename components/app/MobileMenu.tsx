@@ -2,14 +2,13 @@ import Link from "next/link"
 
 import { BiLibrary } from "react-icons/bi"
 import { AiFillHome, AiFillAppstore, AiOutlineUser } from "react-icons/ai"
-const Menu = ({ className }:any) => {
+const MobileMenu = ({ className }: any) => {
   return (
-
     <div
-      className={`flex h-12 w-11/12 flex-shrink-0 items-center justify-between  gap-3 rounded-lg bg-black ${className}`}
+      className={`flex h-14 w-11/12 max-w-md flex-shrink-0 items-center  justify-between gap-3 rounded-lg ${className}`}
     >
       <Link
-        href="/home"
+        href="/"
         className="flex flex-col items-center justify-center gap-2 text-xs"
       >
         <AiFillHome size={30} />
@@ -39,4 +38,4 @@ const Menu = ({ className }:any) => {
     </div>
   )
 }
-export default Menu
+export default MobileMenu

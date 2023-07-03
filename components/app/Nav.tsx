@@ -2,6 +2,7 @@
 import { BiMoon, BiSun, BiSearch } from "react-icons/bi"
 import Link from "next/link"
 import { useState } from "react"
+import MobileMenu from "@/components/app/MobileMenu"
 const Nav = () => {
   const [dark, setdark] = useState(true)
   return (
@@ -9,12 +10,8 @@ const Nav = () => {
       <Link href="/">
         <h1 className="text-3xl font-bold text-primary">Kitab</h1>
       </Link>
-      <div
-        className={`flex h-12 w-max items-center justify-center gap-3 rounded-lg sm:hidden`}
-      >
-        <Link href="/">Home</Link>
-        <Link href="/categories">categories</Link>
-        <Link href="/store">Store</Link>
+      <div className="flex h-12 w-2/3 flex-shrink items-center justify-center gap-3 rounded-lg sm:hidden">
+        <MobileMenu className="bg-transparent sm:hidden md:hidden" />
       </div>
 
       <div className="flex w-max flex-row items-center justify-center gap-2 ">
