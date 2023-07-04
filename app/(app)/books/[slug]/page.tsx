@@ -3,6 +3,7 @@ import Download from "@/components/app/Download"
 import PRISMA from "@/lib/prisma"
 import Link from "next/link"
 import Image from "next/image"
+
 const page = async ({ params }: { params: { slug: string } }) => {
   const book = await PRISMA.book
     .findUnique({
@@ -12,14 +13,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
       include: {
         author: true,
       },
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+    }).then((res) => res)
+    .catch((err) => null)
   if (book?.id) {
     const {
       slug,
-      title,
+      name,
       author,
       language,
       downloads,
@@ -45,7 +44,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           <div className="flex h-max flex-col items-center justify-between gap-4 sm:w-11/12 lg:h-5/6 lg:w-2/3">
             <div className="flex w-full flex-col items-start justify-start ">
               <div className="flex h-max w-full flex-row flex-wrap items-center justify-between whitespace-nowrap">
-                <h1 className="text-3xl font-bold">{title}</h1>
+                <h1 className="text-3xl font-bold">{name}</h1>
                 <p>Self Help</p>
                 <p>2022</p>
               </div>

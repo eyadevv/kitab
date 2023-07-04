@@ -4,7 +4,7 @@ const page = async () => {
   const categories = await PRISMA.category
     .findMany({
       select: {
-        title: true,
+        name: true,
       },
     })
     .then((res) => res)

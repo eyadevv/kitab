@@ -2,13 +2,13 @@ import Link from "next/link"
 import Image from "next/image"
 const Book = ({ id, data }: any) => {
   const {
-    title,
+    name,
     slug,
     cover,
     rate,
     category,
   }: {
-    title: string
+    name: string
     slug: string
     cover: string
     rate: number
@@ -16,8 +16,11 @@ const Book = ({ id, data }: any) => {
   } = data || {}
 
   return (
-    <div className="h-88 flex w-40  flex-col items-center justify-start gap-3 text-sm sm:h-max sm:w-24 ">
-      <Link href={`/books/${slug}`}>
+    <div className="h-88 flex w-40 flex-col items-center justify-center gap-3  rounded-xl bg-white bg-opacity-5 p-2  text-sm sm:h-max sm:w-24 ">
+      <Link
+        href={`/books/${slug}`}
+        className="flex h-full w-full items-center justify-center"
+      >
         <Image
           src="/cover.jpg"
           height={100}
@@ -27,9 +30,11 @@ const Book = ({ id, data }: any) => {
         />
       </Link>
 
-      <p className="text-md font-semibold sm:text-sm sm:font-light">{title}</p>
-      <Link href={`/categories/${category.title}`}>
-        <p className=" text-xs text-primary">{category?.title}</p>
+      <p className="text-md whitespace-nowrap font-semibold sm:text-xs sm:font-light">
+        {name.length <= 15 ? name : name.slice(0, 16) + ".."}
+      </p>
+      <Link href={`/categories/${category.name}`}>
+        <p className="text-xs text-primary">{category?.name}</p>
       </Link>
     </div>
   )

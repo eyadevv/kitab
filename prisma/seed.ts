@@ -49,7 +49,7 @@ const data = {
   ],
   books: [
     {
-      title: "atomic habits",
+      name: "atomic habits",
       slug: "atomic-habits",
       cover: "Null",
       language: "EN",
@@ -65,7 +65,7 @@ const data = {
       categoryId: 1,
     },
     {
-      title: "The Now Habit",
+      name: "The Now Habit",
       slug: "the-now-habit",
       cover: "Null",
       language: "EN",
@@ -81,7 +81,7 @@ const data = {
       categoryId: 1,
     },
     {
-      title: "Jaleed",
+      name: "Jaleed",
       slug: "jalees",
       cover: "Null",
       language: "AR",
@@ -97,7 +97,7 @@ const data = {
       categoryId: 1,
     },
     {
-      title: "Majarayaat",
+      name: "Majarayaat",
       slug: "majarayaat",
       cover: "Null",
       language: "AR",
@@ -113,8 +113,88 @@ const data = {
       categoryId: 1,
     },
     {
-      title: "knood",
+      name: "knood",
       slug: "knood",
+      cover: "Null",
+      language: "AR",
+      downloads: 12000,
+      pages: 300,
+      type: "PDF",
+      size: "12MB",
+      rate: 4.5,
+      price: "12$",
+      description:
+        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
+      authorId: 2,
+      categoryId: 1,
+    },
+    {
+      name: "maslakiyaat",
+      slug: "maslakiyaat",
+      cover: "Null",
+      language: "EN",
+      downloads: 12000,
+      pages: 300,
+      type: "PDF",
+      size: "12MB",
+      rate: 4.5,
+      price: "12$",
+      description:
+        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
+      authorId: 1,
+      categoryId: 1,
+    },
+    {
+      name: "The Power of Now",
+      slug: "the-power-of-now",
+      cover: "Null",
+      language: "EN",
+      downloads: 12000,
+      pages: 300,
+      type: "PDF",
+      size: "12MB",
+      rate: 4.5,
+      price: "12$",
+      description:
+        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
+      authorId: 2,
+      categoryId: 1,
+    },
+    {
+      name: "hyper focus",
+      slug: "hyper-focus",
+      cover: "Null",
+      language: "AR",
+      downloads: 12000,
+      pages: 300,
+      type: "PDF",
+      size: "12MB",
+      rate: 4.5,
+      price: "12$",
+      description:
+        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
+      authorId: 1,
+      categoryId: 1,
+    },
+    {
+      name: "the one ting",
+      slug: "the-one-ting",
+      cover: "Null",
+      language: "AR",
+      downloads: 12000,
+      pages: 300,
+      type: "PDF",
+      size: "12MB",
+      rate: 4.5,
+      price: "12$",
+      description:
+        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
+      authorId: 2,
+      categoryId: 1,
+    },
+    {
+      name: "Build",
+      slug: "build",
       cover: "Null",
       language: "AR",
       downloads: 12000,
@@ -131,33 +211,33 @@ const data = {
   ],
   sections: [
     {
-      title: "Start reading",
+      name: "Start reading",
     },
     {
-      title: "Trending",
+      name: "Trending",
     },
     {
-      title: "best in you country",
+      name: "best in you country",
     },
     {
-      title: "on sale",
+      name: "on sale",
     },
   ],
   categories: [
     {
-      title: "Self help",
+      name: "Self help",
     },
     {
-      title: "Money",
+      name: "Money",
     },
     {
-      title: "Education",
+      name: "Education",
     },
     {
-      title: "Fame",
+      name: "Fame",
     },
     {
-      title: "programming",
+      name: "programming",
     },
   ],
   publishers: [
@@ -172,6 +252,20 @@ const data = {
     {
       name: "ZAD",
       location: "KSA",
+    },
+  ],
+  library: [
+    {
+      id: 1,
+      name: "my lib",
+    },
+    {
+      id: 2,
+      name: "your lib",
+    },
+    {
+      id: 3,
+      name: "our",
     },
   ],
 }
@@ -190,6 +284,14 @@ async function main() {
       .createMany({
         skipDuplicates: true,
         data: data.users,
+      })
+      .then((res) => {
+        console.log(res)
+      })
+    await PRISMA.library
+      .createMany({
+        skipDuplicates: true,
+        data: data.library,
       })
       .then((res) => {
         console.log(res)

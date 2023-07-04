@@ -15,13 +15,22 @@ model admin {
 }
 
 model user {
-  id       Int      @id @unique @default(autoincrement())
-  username String   @unique
-  email    String   @unique
+  id       Int       @id @unique @default(autoincrement())
+  username String    @unique
+  email    String    @unique
   password String
   country  String
   gender   String
   reviews  review[]
+  library  library[]
+}
+
+model library {
+  id     Int     @id @unique @default(autoincrement())
+  name   String?
+  books  book[]
+  user   user?   @relation(fields: [userId], references: [id])
+  userId Int?
 }
 
 model author {
@@ -35,15 +44,15 @@ model author {
 
 model publisher {
   id       Int    @id @unique @default(autoincrement())
-  name     String  @unique
+  name     String @unique
   location String
   books    book[]
 }
 
 model book {
-  id          Int       @id @unique @default(autoincrement())
-  title       String    @unique
-  slug String @unique
+  id          Int        @id @unique @default(autoincrement())
+  name        String     @unique
+  slug        String     @unique
   cover       String
   language    String
   downloads   Int
@@ -52,35 +61,36 @@ model book {
   size        String
   rate        Float
   price       String
-  description  String
-  author      author    @relation(fields: [authorId], references: [id])
+  description String
+  author      author     @relation(fields: [authorId], references: [id])
   publisher   publisher? @relation(fields: [publisherId], references: [id])
-  category   category @relation(fields: [categoryId], references: [id])
-  categoryId Int
+  category    category   @relation(fields: [categoryId], references: [id])
+  categoryId  Int
   authorId    Int
   publisherId Int?
   reviews     review[]
   sections    section[]
+  library     library[]
 }
 
 model section {
   id    Int    @id @unique @default(autoincrement())
-  title String @unique
+  name  String @unique
   books book[]
 }
 
 model category {
   id    Int    @id @unique @default(autoincrement())
-  title String @unique
+  name  String @unique
   books book[]
 }
 
 model review {
-  id       Int      @id @unique @default(autoincrement())
-  date     DateTime @default(now())
-  comment  String
-  user   user     @relation(fields: [userId], references: [id])
-  book     book     @relation(fields: [bookId], references: [id])
-  userId Int
-  bookId   Int
+  id      Int      @id @unique @default(autoincrement())
+  date    DateTime @default(now())
+  comment String
+  user    user     @relation(fields: [userId], references: [id])
+  book    book     @relation(fields: [bookId], references: [id])
+  userId  Int
+  bookId  Int
 }
