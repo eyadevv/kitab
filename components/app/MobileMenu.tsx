@@ -1,7 +1,10 @@
-import Link from "next/link"
-
-import { BiLibrary } from "react-icons/bi"
-import { AiFillHome, AiFillAppstore, AiOutlineUser } from "react-icons/ai"
+import Link from "next/link";
+import { BiLibrary } from "react-icons/bi";
+import {
+  AiOutlineAppstore,
+  AiOutlineHome,
+  AiOutlineUser,
+} from "react-icons/ai";
 const MobileMenu = ({ className }: any) => {
   return (
     <div
@@ -11,14 +14,14 @@ const MobileMenu = ({ className }: any) => {
         href="/"
         className="flex flex-col items-center justify-center gap-2 text-xs"
       >
-        <AiFillHome size={30} />
+        <AiOutlineHome size={30} />
         <p>Home</p>
       </Link>
       <Link
         href="/categories"
         className="flex flex-col items-center justify-center gap-2 text-xs"
       >
-        <AiFillAppstore size={30} />
+        <AiOutlineAppstore size={30} />
         <p>Categories</p>
       </Link>
       <Link
@@ -36,6 +39,6 @@ const MobileMenu = ({ className }: any) => {
         <p>Library</p>
       </Link>
     </div>
-  )
-}
-export default MobileMenu
+  );
+};
+export default MobileMenu;

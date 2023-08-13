@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@prisma/client";
 
-const PRISMA = new PrismaClient()
+const PRISMA = new PrismaClient();
 
 const data = {
   admins: [
@@ -33,15 +33,15 @@ const data = {
   ],
   authors: [
     {
-      id: 1,
-      name: "James Clear",
+      name: "james clear",
+      slug: "james-clear",
       image: "Null",
       country: "United States",
       description: "Author of the best selling books and #1 In the world",
     },
     {
-      id: 2,
-      name: "Eyad Faisal",
+      name: "eyad faisal",
+      slug: "eyad-faisal",
       image: "Null",
       country: "United States",
       description: "Author of the best selling books and #1 In the world",
@@ -61,8 +61,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 1,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "The Now Habit",
@@ -77,8 +77,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 2,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "Jaleed",
@@ -93,8 +93,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 1,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "Majarayaat",
@@ -109,8 +109,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 2,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "knood",
@@ -125,8 +125,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 2,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "maslakiyaat",
@@ -141,8 +141,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 1,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "The Power of Now",
@@ -157,8 +157,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 2,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "hyper focus",
@@ -173,8 +173,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 1,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "the one ting",
@@ -189,8 +189,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 2,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
     {
       name: "Build",
@@ -205,8 +205,8 @@ const data = {
       price: "12$",
       description:
         "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorId: 2,
-      categoryId: 1,
+      authorName: "james clear",
+      categoryName: "Self-help",
     },
   ],
   sections: [
@@ -225,7 +225,7 @@ const data = {
   ],
   categories: [
     {
-      name: "Self help",
+      name: "Self-help",
     },
     {
       name: "Money",
@@ -268,7 +268,7 @@ const data = {
       name: "our",
     },
   ],
-}
+};
 
 async function main() {
   try {
@@ -278,67 +278,67 @@ async function main() {
         data: data.admins,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     await PRISMA.user
       .createMany({
         skipDuplicates: true,
         data: data.users,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     await PRISMA.library
       .createMany({
         skipDuplicates: true,
         data: data.library,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     await PRISMA.author
       .createMany({
         skipDuplicates: true,
         data: data.authors,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     await PRISMA.category
       .createMany({
         skipDuplicates: true,
         data: data.categories,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     await PRISMA.book
       .createMany({
         skipDuplicates: true,
         data: data.books,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     await PRISMA.section
       .createMany({
         skipDuplicates: true,
         data: data.sections,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     await PRISMA.publisher
       .createMany({
         skipDuplicates: true,
         data: data.publishers,
       })
       .then((res) => {
-        console.log(res)
-      })
+        console.log(res);
+      });
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 
-main()
+main();

@@ -34,8 +34,8 @@ model library {
 }
 
 model author {
-  id          Int    @id @unique @default(autoincrement())
-  name        String
+  name        String @id @unique
+  slug        String @unique
   image       String
   country     String
   description String
@@ -50,27 +50,27 @@ model publisher {
 }
 
 model book {
-  id          Int        @id @unique @default(autoincrement())
-  name        String     @unique
-  slug        String     @unique
-  cover       String
-  language    String
-  downloads   Int
-  pages       Int
-  type        String
-  size        String
-  rate        Float
-  price       String
-  description String
-  author      author     @relation(fields: [authorId], references: [id])
-  publisher   publisher? @relation(fields: [publisherId], references: [id])
-  category    category   @relation(fields: [categoryId], references: [id])
-  categoryId  Int
-  authorId    Int
-  publisherId Int?
-  reviews     review[]
-  sections    section[]
-  library     library[]
+  id           Int        @id @unique @default(autoincrement())
+  name         String     @unique
+  slug         String     @unique
+  cover        String
+  language     String
+  downloads    Int
+  pages        Int
+  type         String
+  size         String
+  rate         Float
+  price        String
+  description  String
+  author       author     @relation(fields: [authorName], references: [name])
+  publisher    publisher? @relation(fields: [publisherId], references: [id])
+  category     category   @relation(fields: [categoryName], references: [name])
+  categoryName String
+  authorName   String
+  publisherId  Int?
+  reviews      review[]
+  sections     section[]
+  library      library[]
 }
 
 model section {
@@ -80,8 +80,8 @@ model section {
 }
 
 model category {
-  id    Int    @id @unique @default(autoincrement())
-  name  String @unique
+  // id    Int    @unique @default(autoincrement())
+  name  String @id @unique
   books book[]
 }
 

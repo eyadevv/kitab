@@ -1,21 +1,24 @@
-import Book from "./Book"
-import Card from "./Card"
-import { Reload } from "./Error"
+import Book from "./Book";
+import Category from "./Category";
+import Author from "./Author";
+import Error from "./Error";
 const Grid = ({ data, type }: { data: any; type: string }) => {
   return (
-    <div className="flex h-max w-11/12 flex-wrap items-start justify-evenly gap-4 rounded-xl  bg-opacity-10 py-4 ">
+    <div className="flex h-max w-full flex-wrap items-start justify-center gap-4 rounded-xl  py-4 ">
       {!data ? (
-        <Reload />
+        <Error />
       ) : (
         data?.map((data: any, id: number) => {
-          return type !== "book" ? (
-            <Card data={data} type={type} />
+          return type === "category" ? (
+            <Category data={data} />
+          ) : type === "author" ? (
+            <Author data={data} />
           ) : (
             <Book key={id} data={data} />
-          )
+          );
         })
       )}
     </div>
-  )
-}
-export default Grid
+  );
+};
+export default Grid;

@@ -1,10 +1,10 @@
-import PRISMA from "@/lib/prisma"
-import Grid from "@/components/app/Grid"
-const page = async ({ params }: { params: { id: number } }) => {
+import PRISMA from "@/lib/prisma";
+import Grid from "@/components/app/Grid";
+const page = async ({ params }: { params: { name: string } }) => {
   const category = await PRISMA.category
     .findUnique({
       where: {
-        id: Number(params.id),
+        name: params.name,
       },
       include: {
         _count: true,
@@ -18,8 +18,9 @@ const page = async ({ params }: { params: { id: number } }) => {
           },
         },
       },
-    }).then((res) => res)
-    .catch((err) => null)
+    })
+    .then((res) => res)
+    .catch((err) => err);
 
   return (
     <div className="flex w-11/12 flex-col items-center justify-start">
@@ -33,6 +34,6 @@ const page = async ({ params }: { params: { id: number } }) => {
         <Grid data={category?.books} type="book" />
       )}
     </div>
-  )
-}
-export default page
+  );
+};
+export default page;
