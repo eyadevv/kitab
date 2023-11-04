@@ -1,38 +1,43 @@
-import TextInput from "./TextInput"
+import TextInput from "./TextInput";
 const Select = ({
   checked,
-  setchecked,
+  setter,
   placeholer,
   data,
+  handleChange,
 }: {
-  checked: boolean
-  setchecked: any
-  placeholer: string
-  data: any
+  checked: boolean;
+  setter: any;
+  placeholer: string;
+  data: any;
+  handleChange: Function;
 }) => {
   return (
     <div className="w-full h-12 flex flex-row justify-start items-center gap-2">
       {checked ? (
-        <TextInput placeholder={placeholer} />
+        <TextInput placeholder={placeholer} handleChange={undefined} />
       ) : (
-        <select className="select select-bordered w-full h-12 max-w-xs">
+        <select
+          onChange={(e) => handleChange(e.target.value)}
+          className="select select-bordered w-full h-12 max-w-xs"
+        >
           <option disabled selected>
             {placeholer}
           </option>
           {data?.map((item: any, id: number) => {
-            return <option key={id}>{item.name || item.title}</option>
+            return <option key={id}>{item.name || item.title}</option>;
           })}
         </select>
       )}
       <input
         checked={checked}
-        onChange={() => setchecked(!checked)}
+        onChange={() => setter(!checked)}
         type="checkbox"
         name=""
         id=""
       />
     </div>
-  )
-}
+  );
+};
 
-export default Select
+export default Select;

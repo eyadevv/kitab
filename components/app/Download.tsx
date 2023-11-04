@@ -2,7 +2,6 @@
 import { FaDownload } from "react-icons/fa";
 import { useState } from "react";
 const Download = ({ slug }: { slug: string }) => {
-  const [state, setstate] = useState("");
   return (
     <a
       href={`/download/${slug}`}

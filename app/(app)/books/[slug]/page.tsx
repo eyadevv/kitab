@@ -47,7 +47,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           <div className="flex h-max flex-col items-center justify-between gap-4 sm:w-11/12 lg:h-5/6 lg:w-2/3">
             <div className="flex w-full flex-col items-start justify-start ">
               <div className="flex h-max w-full flex-row flex-wrap items-center justify-between whitespace-nowrap">
-                <h1 className="text-3xl font-bold">{name}</h1>
+                <h1 className="text-3xl font-bold sm:text-2xl">{name}</h1>
                 <Link
                   href={`/categories/${category.name}`}
                   className="bg-blue-600 bg-opacity-25 rounded-lg "
@@ -57,7 +57,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
                 <p>2022</p>
                 <Heart />
               </div>
-              <Link href={`/app/authors/${author.name}`}>{author.name}</Link>
+              <Link
+                href={`/app/authors/${author.name}`}
+                className="font-medium"
+              >
+                {author.name}
+              </Link>
             </div>
             <div className="h-max w-full">
               {/* <p>{description}</p> */}

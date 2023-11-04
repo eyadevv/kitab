@@ -1,7 +1,8 @@
-import PRISMA from "@/lib/prisma";
 import Grid from "@/components/app/Grid";
+import PRISMA from "@/lib/prisma";
+
 const page = async () => {
-  const books: any = await PRISMA.book
+  const books = await PRISMA.book
     .findMany({
       take: 25,
       select: {
@@ -22,14 +23,12 @@ const page = async () => {
       },
     })
     .then((res) => res)
-    .catch((err) => {
-      console.log(err);
-      return null;
-    });
+    .catch((err) => null);
 
   return (
-    <div className="flex h-full w-11/12 items-start justify-center gap-3 ">
-      <Grid data={books} type="book" />
+    <div className="w-11/12 h-mx flex flex-col justify-start items-center">
+      <div className="w-full h-max flex flex-row justify-between items-center "></div>
+      <Grid type="book" data={books} />
     </div>
   );
 };

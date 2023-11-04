@@ -9,33 +9,31 @@ const Book = ({ id, data }: any) => {
     cover,
     rate,
     category,
+    author,
   }: {
     name: string;
     slug: string;
     cover: string;
     rate: number;
     category: any;
+    author: {
+      name: string;
+    };
   } = data || {};
 
   return (
     <Link
       href={`/books/${slug}`}
-      className="h-88 flex w-40 flex-col items-center justify-center gap-3  rounded-xl bg-dark dark:bg-white text-black dark:text-white bg-opacity-10 p-4  text-sm sm:h-max sm:w-24 "
+      className="h-88 flex w-44 rounded-lg  flex-shrink-0"
     >
-      <div className="flex h-full w-full items-center justify-center">
-        <Image
-          src="/cover.jpg"
-          height={100}
-          width={128}
-          alt="cover"
-          className="h-max w-32 rounded-lg  object-cover"
-        />
-      </div>
-
-      <p className="text-md whitespace-nowrap font-semibold sm:text-xs sm:font-light">
-        {name.length <= 15 ? name : name.slice(0, 16) + ".."}
-      </p>
-      <p className="text-xs">{category?.name}</p>
+      {/* <div className="flex h-full w-full items-center justify-center"> */}
+      <Image
+        src="/cover.jpg"
+        height={100}
+        width={128}
+        alt="cover"
+        className="h-full w-full rounded-lg  object-cover"
+      />
     </Link>
   );
 };

@@ -1,28 +1,73 @@
-"use client"
-import { useState } from "react"
-import TextInput from "./TextInput"
-import Select from "./Select"
+"use client";
+import { useReducer, useState, useTransition } from "react";
+import TextInput from "./TextInput";
+import Select from "./Select";
 const Form = ({ authors, categories }: any) => {
-  const [author, setauthor] = useState(false)
-  const [category, setcategory] = useState(false)
-  const [language, setlanguage] = useState(false)
+  const [check, setcheck] = useState({
+    author: false,
+    language: false,
+    category: false,
+  });
+  const [data, setdata] = useState({
+    title: null,
+    author: null,
+    category: null,
+    language: null,
+    year: null,
+  });
 
   return (
     <div className="flex h-full w-11/12 max-w-lg flex-col items-start justify-start gap-4 rounded">
-      <TextInput placeholder="Book Name" />
+      <TextInput
+        placeholder="Book Name"
+        handleChange={(value: any) =>
+          setdata({
+            ...data,
+            title: value,
+          })
+        }
+      />
       <Select
         data={authors}
         placeholer="Author"
-        checked={author}
-        setchecked={setauthor}
+        checked={check.author}
+        setter={() =>
+          setcheck({
+            ...check,
+            author: !check.author,
+          })
+        }
+        handleChange={(value: any) =>
+          setdata({
+            ...data,
+            author: value,
+          })
+        }
       />
       <Select
         data={categories}
         placeholer="category"
-        checked={category}
-        setchecked={setcategory}
+        checked={check.category}
+        setter={() =>
+          setcheck({
+            ...check,
+            category: !check.category,
+          })
+        }
+        handleChange={(value: any) =>
+          setdata({
+            ...data,
+            category: value,
+          })
+        }
       />
       <Select
+        handleChange={(value: any) =>
+          setdata({
+            ...data,
+            language: value,
+          })
+        }
         data={[
           {
             title: "EN",
@@ -32,10 +77,23 @@ const Form = ({ authors, categories }: any) => {
           },
         ]}
         placeholer="Languages"
-        checked={language}
-        setchecked={setlanguage}
+        checked={check.language}
+        setter={() =>
+          setcheck({
+            ...check,
+            language: !check.language,
+          })
+        }
       />
-      <TextInput placeholder="Year" />
+      <TextInput
+        placeholder="Year"
+        handleChange={(value: any) =>
+          setdata({
+            ...data,
+            year: value,
+          })
+        }
+      />
       <div className="form-control">
         <label className="label">
           <span className="label-text">Book Summery</span>
@@ -45,11 +103,9 @@ const Form = ({ authors, categories }: any) => {
           placeholder="Summery"
         ></textarea>
       </div>
-      <button className="btn bg-black">
-        <span className="loading-spinner"></span>
-        Submit
-      </button>
+      <button className="btn bg-black">Submit</button>
+      {JSON.stringify(data)}
     </div>
-  )
-}
-export default Form
+  );
+};
+export default Form;

@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { BiLibrary } from "react-icons/bi";
 import {
   AiOutlineAppstore,
   AiOutlineHome,
   AiOutlineUser,
 } from "react-icons/ai";
+import { Flame } from "lucide-react";
 const MobileMenu = ({ className }: any) => {
   return (
     <div
-      className={`flex h-14 w-11/12 max-w-md flex-shrink-0 items-center  justify-between gap-3 rounded-lg ${className}`}
+      className={`flex h-max w-11/12 max-w-md flex-shrink-0 items-center  justify-between gap-3 py-2 rounded-lg ${className}`}
     >
       <Link
         href="/"
@@ -32,11 +32,11 @@ const MobileMenu = ({ className }: any) => {
         <p>Authors</p>
       </Link>
       <Link
-        href="/library"
+        href="/top"
         className="flex flex-col items-center justify-center gap-2 text-xs"
       >
-        <BiLibrary size={30} />
-        <p>Library</p>
+        <Flame size={30} />
+        <p>Top</p>
       </Link>
     </div>
   );

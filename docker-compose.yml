@@ -1,10 +1,10 @@
-   version: '3'
-   services:
-     db:
-       image: postgres
-       environment:
-         POSTGRES_USER: kitab-web
-         POSTGRES_PASSWORD: THISPASSOWDISHARD
-         POSTGRES_DB: Kitab
-       ports:
-         - "5432:5432"
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: kitab
+    ports:
+      - "5432:5432"
