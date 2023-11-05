@@ -47,7 +47,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           <div className="flex h-max flex-col items-center justify-between gap-4 sm:w-11/12 lg:h-5/6 lg:w-2/3">
             <div className="flex w-full flex-col items-start justify-start ">
               <div className="flex h-max w-full flex-row flex-wrap items-center justify-between whitespace-nowrap">
-                <h1 className="text-3xl font-bold sm:text-2xl">{name}</h1>
+                <h1 className="text-3xl font-bold sm:text-xl">{name}</h1>
                 <Link
                   href={`/categories/${category.name}`}
                   className="bg-blue-600 bg-opacity-25 rounded-lg "

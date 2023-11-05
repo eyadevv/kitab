@@ -4,7 +4,7 @@ import PRISMA from "@/lib/prisma";
 const page = async () => {
   const books = await PRISMA.book
     .findMany({
-      take: 25,
+      take: 30,
       select: {
         name: true,
         cover: true,
@@ -28,7 +28,7 @@ const page = async () => {
   return (
     <div className="w-11/12 h-mx flex flex-col justify-start items-center">
       <div className="w-full h-max flex flex-row justify-between items-center "></div>
-      <Grid type="book" data={books} />
+      <Grid type="book" initialData={books} />
     </div>
   );
 };

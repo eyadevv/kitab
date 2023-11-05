@@ -31,7 +31,7 @@ const page = async ({ params }: { params: { name: string } }) => {
       {category?.books.length === 0 ? (
         <p>No Books in This Category</p>
       ) : (
-        <Grid data={category?.books} type="book" />
+        <Grid initialData={category?.books} type="book" />
       )}
     </div>
   );

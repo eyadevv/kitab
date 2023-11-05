@@ -1,9 +1,12 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
 import PRISMA from "@/lib/prisma";
-import Grid from "@/components/app/Grid";
-const page = async () => {
+export default async function Scroll(id: number) {
   const books: any = await PRISMA.book
     .findMany({
       take: 20,
+      skip: id,
       select: {
         name: true,
         cover: true,
@@ -26,11 +29,6 @@ const page = async () => {
       console.log(err);
       return null;
     });
-
-  return (
-    <div className="flex h-full w-11/12 items-start justify-center gap-3 ">
-      <Grid initialData={books} type="book" />
-    </div>
-  );
-};
-export default page;
+  revalidatePath("/");
+  return books;
+}
