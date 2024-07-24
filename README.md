@@ -1,17 +1,18 @@
 # KITAB
 
 ## About
-KITAB is an application designed to manage and organize your book collection. It allows users to add, update, and delete book information while keeping track of various book details. This project leverages modern web development technologies to provide a seamless user experience.
+KITAB is an application designed to allow users access to a larrge book library with direct download option, while keeping track of various book details. This project leverages modern web development technologies to provide a seamless user experience.
 
 ## Features
 - **Add Books**: Easily add new books to your collection.
 - **Update Information**: Edit book details as needed.
 - **Delete Books**: Remove books from your collection.
 - **Search and Filter**: Quickly find books based on various criteria.
+- **Download Books**: Users have the ability to Download any book Directly
 
 ## Technologies Used
 - **Frontend**: Next.js, React
-- **Backend**: Node.js, Express
+- **Backend**: Node.js,
 - **Database**: Prisma, PostgreSQL
 - **Styling**: Tailwind CSS
 - **Other Tools**: Docker, ESLint
