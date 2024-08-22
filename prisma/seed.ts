@@ -1,620 +1,178 @@
 import { PrismaClient } from "@prisma/client";
 
-const PRISMA = new PrismaClient();
-
-const data = {
-  admins: [
-    {
-      username: "eyadevv",
-      email: "eyadevv@gmail.com",
-      password: "Aisha2000",
-    },
-    {
-      username: "Kamel403",
-      email: "kamel@gmail.com",
-      password: "kamel12#2023",
-    },
-  ],
-  users: [
-    {
-      username: "eyad12",
-      email: "eyad12@gmail.com",
-      password: "HashedPassword",
-      country: "Sudan",
-      gender: "Male",
-    },
-    {
-      username: "eyad13",
-      email: "eyad13@gmail.com",
-      password: "HashedPassword",
-      country: "Sudan",
-      gender: "Male",
-    },
-  ],
-  authors: [
-    {
-      name: "james clear",
-      slug: "james-clear",
-      image: "Null",
-      country: "United States",
-      description: "Author of the best selling books and #1 In the world",
-    },
-    {
-      name: "eyad faisal",
-      slug: "eyad-faisal",
-      image: "Null",
-      country: "United States",
-      description: "Author of the best selling books and #1 In the world",
-    },
-    {
-      // unkown
-      name: "UNKNOWN",
-      slug: "UNKNOWN",
-      image: "Null",
-      country: "United States",
-      description: "Author of the best selling books and #1 In the world",
-    },
-  ],
-  books: [
-    {
-      name: "atomic habits",
-      slug: "atomic-habits",
-      cover: "Null",
-      language: "EN",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "The Now Habit",
-      slug: "the-now-habit",
-      cover: "Null",
-      language: "EN",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "Jaleed",
-      slug: "jalees",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "Majarayaat",
-      slug: "majarayaat",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "knood",
-      slug: "knood",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "maslakiyaat",
-      slug: "maslakiyaat",
-      cover: "Null",
-      language: "EN",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "The Power of Now",
-      slug: "the-power-of-now",
-      cover: "Null",
-      language: "EN",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "hyper focus",
-      slug: "hyper-focus",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "the one ting",
-      slug: "the-one-ting",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "Build",
-      slug: "build",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "1",
-      slug: "1",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "2",
-      slug: "2",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "3",
-      slug: "3",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "4",
-      slug: "4",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "5",
-      slug: "5",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "6",
-      slug: "6",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "7",
-      slug: "7",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "8",
-      slug: "8",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "9",
-      slug: "9",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "10",
-      slug: "10",
-      cover: "Null",
-      language: "AR",
-      downloads: 12000,
-      pages: 300,
-      type: "PDF",
-      size: "12MB",
-      rate: 4.5,
-      price: "12$",
-      description:
-        "lorem lorem lorem lorem ipsum sum cat boss under my nigga ya boy whats up",
-      authorName: "james clear",
-      categoryName: "Self-help",
-    },
-    {
-      name: "Book 1",
-      slug: "book-1",
-      cover: "book1.jpg",
-      language: "English",
-      downloads: 1000,
-      pages: 200,
-      type: "Fiction",
-      size: "5 MB",
-      rate: 4.5,
-      price: "$9.99",
-      description: "This is the description of Book 1.",
-    },
-    {
-      name: "Book 2",
-      slug: "book-2",
-      cover: "book2.jpg",
-      language: "Spanish",
-      downloads: 500,
-      pages: 150,
-      type: "Romance",
-      size: "3 MB",
-      rate: 3.8,
-      price: "$7.99",
-      description: "This is the description of Book 2.",
-    },
-    {
-      name: "Book 3",
-      slug: "book-3",
-      cover: "book3.jpg",
-      language: "French",
-      downloads: 800,
-      pages: 180,
-      type: "Mystery",
-      size: "4 MB",
-      rate: 4.2,
-      price: "$8.99",
-      description: "This is the description of Book 3.",
-    },
-    {
-      name: "Book 4",
-      slug: "book-4",
-      cover: "book4.jpg",
-      language: "German",
-      downloads: 1200,
-      pages: 300,
-      type: "Fantasy",
-      size: "6 MB",
-      rate: 4.7,
-      price: "$11.99",
-      description: "This is the description of Book 4.",
-    },
-
-    {
-      name: "Book 10",
-      slug: "book-10",
-      cover: "book1.jpg",
-      language: "English",
-      downloads: 1000,
-      pages: 200,
-      type: "Fiction",
-      size: "5 MB",
-      rate: 4.5,
-      price: "$9.99",
-      description: "This is the description of Book 1.",
-    },
-    {
-      name: "Book 20",
-      slug: "book-20",
-      cover: "book2.jpg",
-      language: "Spanish",
-      downloads: 500,
-      pages: 150,
-      type: "Romance",
-      size: "3 MB",
-      rate: 3.8,
-      price: "$7.99",
-      description: "This is the description of Book 2.",
-    },
-    {
-      name: "Book 30",
-      slug: "book-30",
-      cover: "book3.jpg",
-      language: "French",
-      downloads: 800,
-      pages: 180,
-      type: "Mystery",
-      size: "4 MB",
-      rate: 4.2,
-      price: "$8.99",
-      description: "This is the description of Book 3.",
-    },
-    {
-      name: "Book 40",
-      slug: "book-40",
-      cover: "book4.jpg",
-      language: "German",
-      downloads: 1200,
-      pages: 300,
-      type: "Fantasy",
-      size: "6 MB",
-      rate: 4.7,
-      price: "$11.99",
-      description: "This is the description of Book 4.",
-    },
-  ],
-  sections: [
-    {
-      name: "Start reading",
-    },
-    {
-      name: "Trending",
-    },
-    {
-      name: "best in you country",
-    },
-    {
-      name: "on sale",
-    },
-  ],
-  categories: [
-    {
-      name: "Self-help",
-    },
-    {
-      name: "Money",
-    },
-    {
-      name: "Education",
-    },
-    {
-      name: "Fame",
-    },
-    {
-      name: "programming",
-    },
-    {
-      name: "unclassified",
-    },
-  ],
-  publishers: [
-    {
-      name: "Jareer",
-      location: "KSA",
-    },
-    {
-      name: "Amazon",
-      location: "KSA",
-    },
-    {
-      name: "ZAD",
-      location: "KSA",
-    },
-  ],
-  library: [
-    {
-      id: 1,
-      name: "my lib",
-    },
-    {
-      id: 2,
-      name: "your lib",
-    },
-    {
-      id: 3,
-      name: "our",
-    },
-  ],
-};
+const prisma = new PrismaClient();
 
 async function main() {
-  try {
-    await PRISMA.admin
-      .createMany({
-        skipDuplicates: true,
-        data: data.admins,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-    await PRISMA.user
-      .createMany({
-        skipDuplicates: true,
-        data: data.users,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-    await PRISMA.library
-      .createMany({
-        skipDuplicates: true,
-        data: data.library,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-    await PRISMA.author
-      .createMany({
-        skipDuplicates: true,
-        data: data.authors,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-    await PRISMA.category
-      .createMany({
-        skipDuplicates: true,
-        data: data.categories,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-    await PRISMA.book
-      .createMany({
-        skipDuplicates: true,
-        data: data.books,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-    await PRISMA.section
-      .createMany({
-        skipDuplicates: true,
-        data: data.sections,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-    await PRISMA.publisher
-      .createMany({
-        skipDuplicates: true,
-        data: data.publishers,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-  } catch (error) {
-    console.error(error);
-  }
+  // Seed Admins
+  const admin1 = await prisma.admin.create({
+    data: {
+      username: "admin1",
+      email: "admin1@example.com",
+      password: "password123",
+    },
+  });
+
+  const admin2 = await prisma.admin.create({
+    data: {
+      username: "admin2",
+      email: "admin2@example.com",
+      password: "password123",
+    },
+  });
+
+  // Seed Users
+  const user1 = await prisma.user.create({
+    data: {
+      username: "john_doe",
+      email: "john@example.com",
+      password: "password123",
+      country: "USA",
+      gender: "Male",
+    },
+  });
+
+  const user2 = await prisma.user.create({
+    data: {
+      username: "jane_doe",
+      email: "jane@example.com",
+      password: "password123",
+      country: "Canada",
+      gender: "Female",
+    },
+  });
+
+  // Seed Authors
+  const author1 = await prisma.author.create({
+    data: {
+      name: "J.K. Rowling",
+      slug: "jk-rowling",
+      image: "https://example.com/jk_rowling.jpg",
+      country: "UK",
+      description: "Author of the Harry Potter series.",
+    },
+  });
+
+  const author2 = await prisma.author.create({
+    data: {
+      name: "George Orwell",
+      slug: "george-orwell",
+      image: "https://example.com/george_orwell.jpg",
+      country: "UK",
+      description: "Author of 1984 and Animal Farm.",
+    },
+  });
+
+  // Seed Publishers
+  const publisher1 = await prisma.publisher.create({
+    data: {
+      name: "Bloomsbury",
+      location: "London, UK",
+    },
+  });
+
+  const publisher2 = await prisma.publisher.create({
+    data: {
+      name: "Secker & Warburg",
+      location: "London, UK",
+    },
+  });
+
+  // Seed Categories
+  const category1 = await prisma.category.create({
+    data: {
+      name: "Fantasy",
+    },
+  });
+
+  const category2 = await prisma.category.create({
+    data: {
+      name: "Dystopian",
+    },
+  });
+
+  // Seed Books
+  const book1 = await prisma.book.create({
+    data: {
+      name: "Harry Potter and the Philosopher's Stone",
+      slug: "harry-potter-philosopher-stone",
+      cover: "https://example.com/hp_philosophers_stone.jpg",
+      language: "English",
+      downloads: 12000,
+      pages: 320,
+      type: "eBook",
+      size: "2MB",
+      rate: 4.9,
+      price: "9.99",
+      description: "The first book in the Harry Potter series.",
+      authorName: author1.name,
+      publisherId: publisher1.id,
+      categoryName: category1.name,
+    },
+  });
+
+  const book2 = await prisma.book.create({
+    data: {
+      name: "1984",
+      slug: "1984",
+      cover: "https://example.com/1984.jpg",
+      language: "English",
+      downloads: 9500,
+      pages: 328,
+      type: "eBook",
+      size: "1.5MB",
+      rate: 4.8,
+      price: "8.99",
+      description: "A dystopian novel set in a totalitarian society.",
+      authorName: author2.name,
+      publisherId: publisher2.id,
+      categoryName: category2.name,
+    },
+  });
+
+  // Seed Libraries
+  const library1 = await prisma.library.create({
+    data: {
+      name: "John's Library",
+      userId: user1.id,
+      books: {
+        connect: [{ id: book1.id }, { id: book2.id }],
+      },
+    },
+  });
+
+  const library2 = await prisma.library.create({
+    data: {
+      name: "Jane's Library",
+      userId: user2.id,
+      books: {
+        connect: [{ id: book2.id }],
+      },
+    },
+  });
+
+  // Seed Reviews
+  const review1 = await prisma.review.create({
+    data: {
+      comment: "Amazing book!",
+      userId: user1.id,
+      bookId: book1.id,
+    },
+  });
+
+  const review2 = await prisma.review.create({
+    data: {
+      comment: "Very thought-provoking.",
+      userId: user2.id,
+      bookId: book2.id,
+    },
+  });
 }
 
-main();
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
