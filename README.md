@@ -63,8 +63,7 @@ Contributions are welcome! Please follow these steps:
 This project is licensed under the MIT License.
 
 ## Contact
-For any questions or suggestions, feel free to open an issue or contact me at [eyadevv@example.com](mailto:eyadevv@example.com).
+For any questions or suggestions, feel free to open an issue or contact me at [eyadevv@gmail.com](mailto:eyadevv@gmail.com).
 
 ---
 
-Feel free to customize any section further to better fit your project's specifics.
