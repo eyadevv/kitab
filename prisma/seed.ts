@@ -1,7 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
+const seedcm = `  // "prisma": {
+  //   "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  // }`
 async function main() {
   // Seed Admins
   const admin1 = await prisma.admin.create({
