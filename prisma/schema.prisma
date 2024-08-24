@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./kitab.db"
+  url      = "file:kitab.db"
 }
 model admin {
   id       Int    @id @unique @default(autoincrement())
