@@ -16,8 +16,8 @@ const Nav = () => {
       </div>
 
       <div className="flex w-max flex-row items-center justify-center gap-2 ">
-        <BiSearch />
-        {dark ? (
+        {/* <BiSearch size={25} /> */}
+        {/* {dark ? (
           <BiSun
             onClick={() => setdark(!dark)}
             size={25}
@@ -29,8 +29,8 @@ const Nav = () => {
             size={25}
             className="flex-shrink-0 cursor-pointer"
           />
-        )}
-        <p className="h-10 w-10 flex-shrink-0 rounded-full bg-white hidden sm:visible"></p>
+        )} */}
+
       </div>
     </nav>
   );

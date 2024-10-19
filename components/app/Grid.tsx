@@ -13,43 +13,40 @@ import {
 } from "react";
 import Scroll from "@/app/actions/scroll";
 const Grid = ({ initialData, type }: { initialData: any; type: string }) => {
+  const [msg, setmsg] = useState('')
   const [ref, inview] = useInView();
   const [loading, setloading] = useState(false);
   const [ispending, startTransition] = useTransition();
   const [data, setdata] = useState(initialData);
   const [cursor, setcursor] = useState(20);
   const [done, setdone] = useState(false);
-
   useEffect(() => {
-    console.log("use effect triggered");
     if (inview && !loading) {
       return startTransition(async () => {
-        console.log("start transition triggered");
         setloading(true);
-        console.log("loading + ", loading);
+        setmsg('loading')
         try {
           const res = await Scroll(cursor);
           if (res?.length === 0) {
             setdone(true);
+            setmsg('That`s all the data we have')
           } else {
             setdata((prev: any) => [...prev, ...res]),
               setcursor((prev: number) => prev + 20);
           }
-
-          console.log(res.length);
         } catch (error) {
-          console.log(error);
+          setmsg("Could't Load Data ,Please check you internet - disable adblocker")
         }
         setloading(false);
       });
     }
   }, [inview]);
-  if (!data) {
+  if (!data || data.length === 0) {
     return <Error />;
   } else {
     return (
-      <div className="flex relative min-h-screen flex-col gap-2 justify-center items-center w-full h-max">
-        <div className="flex flex-row flex-wrap gap-3 justify-center items-start w-full h-max min-h-screen ">
+      <div className="flex justify-center items-start flex-col w-screen relative min-h-[300vh]">
+        <div className="flex flex-row justify-center items-start flex-wrap w-full h-max gap-2 ">
           {data.map((data: any, id: number) => {
             return type === "category" ? (
               <Category data={data} />
@@ -60,15 +57,12 @@ const Grid = ({ initialData, type }: { initialData: any; type: string }) => {
             );
           })}
         </div>
-        <animated.div
+        <div className="w-screen h-screen bg-white " ></div>
+        <div
           ref={ref}
-          className="w-full h-[50vh] -z-10 bottom-0 bg-transparent absolute"
-        ></animated.div>
-        {done && (
-          <p className="text-center inline-block text-xl font-bold text-gray-400">
-            No More Data
-          </p>
-        )}
+          className="w-full h-[50vh] -z-10 bottom-0 absolute bg-transparent"
+        ></div>
+        <p className="absolute top-10 left-0 bg-white text-black" >{msg}</p>
       </div>
     );
   }

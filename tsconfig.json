@@ -30,7 +30,9 @@
     ".next/types/**/*.ts",
     "app/(app)/layout.js",
     "components/ui/Button.jsx",
-    "app/download/[slug]/route.ts"
+    "app/download/[slug]/route.ts",
+    "prisma/data.js",
+    "prisma/seed.js"
   ],
 
   "exclude": ["node_modules"]
