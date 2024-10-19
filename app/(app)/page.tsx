@@ -22,10 +22,7 @@ const page = async () => {
       },
     })
     .then((res) => res)
-    .catch((err) => {
-      console.log(err);
-      return null;
-    });
+    .catch((err) => null);
 
   return (
     <div className="flex h-full w-11/12 items-start justify-center gap-3 ">

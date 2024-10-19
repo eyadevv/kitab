@@ -13,7 +13,7 @@ import {
 } from "react";
 import Scroll from "@/app/actions/scroll";
 const Grid = ({ initialData, type }: { initialData: any; type: string }) => {
-  const [msg, setmsg] = useState('')
+  const [msg, setmsg] = useState("");
   const [ref, inview] = useInView();
   const [loading, setloading] = useState(false);
   const [ispending, startTransition] = useTransition();
@@ -24,18 +24,20 @@ const Grid = ({ initialData, type }: { initialData: any; type: string }) => {
     if (inview && !loading) {
       return startTransition(async () => {
         setloading(true);
-        setmsg('loading')
+        setmsg("loading");
         try {
           const res = await Scroll(cursor);
           if (res?.length === 0) {
             setdone(true);
-            setmsg('That`s all the data we have')
+            setmsg("That`s all the data we have");
           } else {
             setdata((prev: any) => [...prev, ...res]),
               setcursor((prev: number) => prev + 20);
           }
         } catch (error) {
-          setmsg("Could't Load Data ,Please check you internet - disable adblocker")
+          setmsg(
+            "Could't Load Data ,Please check you internet - disable adblocker"
+          );
         }
         setloading(false);
       });
@@ -57,12 +59,12 @@ const Grid = ({ initialData, type }: { initialData: any; type: string }) => {
             );
           })}
         </div>
-        <div className="w-screen h-screen bg-white " ></div>
+        <div className="w-screen h-screen bg-white "></div>
         <div
           ref={ref}
           className="w-full h-[50vh] -z-10 bottom-0 absolute bg-transparent"
         ></div>
-        <p className="absolute top-10 left-0 bg-white text-black" >{msg}</p>
+        <p className="absolute top-10 left-0 bg-white text-black">{msg}</p>
       </div>
     );
   }

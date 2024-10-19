@@ -1,11 +1,9 @@
 import "./globals.css";
-// import { Inter } from "next/font/google"
-import Nav from "@/components/app/Nav";
 
-// const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
-  title: "Kitab || Find Free and Paid Books ",
-  description: "a platform aiming to make books available for every one",
+  title: "Kitab - Best Platform to Download Books",
+  description:
+    "The Platform goal is to provide a better experience for those looking to download books online",
 };
 
 export default function RootLayout({
