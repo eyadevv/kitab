@@ -47,7 +47,7 @@ const Grid = ({ initialData, type }: { initialData: any; type: string }) => {
     return <Error />;
   } else {
     return (
-      <div className="flex justify-center items-start flex-col w-screen relative min-h-[300vh]">
+      <div className="flex justify-start items-start flex-col w-screen relative min-h-[300vh]">
         <div className="flex flex-row justify-center items-start flex-wrap w-full h-max gap-2 ">
           {data.map((data: any, id: number) => {
             return type === "category" ? (
@@ -59,12 +59,11 @@ const Grid = ({ initialData, type }: { initialData: any; type: string }) => {
             );
           })}
         </div>
-        <div className="w-screen h-screen bg-white "></div>
         <div
           ref={ref}
-          className="w-full h-[50vh] -z-10 bottom-0 absolute bg-transparent"
+          className="w-full h-[50vh] -z-0 bottom-0 absolute bg-transparent"
         ></div>
-        <p className="absolute top-10 left-0 bg-white text-black">{msg}</p>
+        <p className="absolute top-10 left-0 text-black">{msg}</p>
       </div>
     );
   }

@@ -34,7 +34,7 @@ model library {
 
 model author {
   name        String @id @unique
-  slug        String @unique
+  slug String @unique
   image       String
   country     String
   description String
@@ -80,7 +80,7 @@ model section {
 
 model category {
   // id    Int    @unique @default(autoincrement())
-  name  String @id @unique
+  name  String @id @unique @default("unknown")
   books book[]
 }
 
