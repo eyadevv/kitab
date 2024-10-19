@@ -13,7 +13,7 @@ const page = async () => {
     .catch((err) => null);
 
   return (
-    <main className="flex h-max w-11/12 ">
+    <main className="flex h-max w-11/12 justify-center items-start ">
       <Grid initialData={authors} type="author" />
     </main>
   );

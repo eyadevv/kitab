@@ -25,15 +25,15 @@ const Book = ({ id, data }: any) => {
   return (
     <Link
       href={`/books/${slug}`}
-      className="h-88 flex w-44 rounded-lg  flex-shrink-0"
+      className="h-88 bg-white flex w-full lg:w-1/5 rounded-lg  flex-shrink-0"
     >
       {/* <div className="flex h-full w-full items-center justify-center"> */}
       <animated.img
-        src="/cover.jpg"
+        src={cover || "/cover.jpg"}
         height={100}
         width={128}
         alt="cover"
-        className="h-full w-full rounded-lg  object-cover"
+        className="h-full w-full rounded-lg  object-cover flex flex-shrink-0"
         style={{
           background: "#ff6d6d",
           borderRadius: 8,

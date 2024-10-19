@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -17,10 +18,13 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
+    "crawlee": "^3.11.5",
     "date-fns": "^2.30.0",
     "focus-visible": "^5.2.0",
     "lucide-react": "^0.288.0",
     "next": "13.4.3",
+    "playwright": "^1.47.2",
+    "playwright-extra": "^4.3.6",
     "postcss": "8.4.23",
     "postcss-focus-visible": "^6.0.4",
     "puppeteer": "^20.8.2",
